@@ -46,3 +46,14 @@ Votre clé étrangère est-elle NOT NULL ? Quelle jointure faut-il pour ne perdr
 
 ## Réponse
 - Sans NOT NULL, id_client accepte NULL. Une commande peut donc exister sans client. C’était voulu : la colonne a été ajoutée sur une table déjà remplie, donc elle ne pouvait pas être NOT NULL tout de suite.
+
+# ETAPE 5
+`SERVEUR(`**`id`**`, nom)`
+`TABLEDETAILS(`**`id`**`, nom)`
+`COMMANDE(`**`id`**`, date_commande,` **`#id_plat`**`,` **`#id_client`**`,` **`#id_serveur`**`,` **`#id_table`**`)`
+
+## Réponse
+Une table de la salle et une commande sont deux choses différentes : expliquez pourquoi.
+->Car une table peut avoir plusieurs commandes
+Pourquoi le nom table pose-t-il problème en SQL ?
+->Parce que table est deja un nom de script 'CREATE TABLE'

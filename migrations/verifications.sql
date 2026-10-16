@@ -22,3 +22,14 @@ FROM CLIENT cl
 JOIN COMMANDE c ON c.id_client = cl.id
 GROUP BY cl.id, cl.nom
 ORDER BY cl.id;
+--Etape 5
+SELECT s.id,
+       s.nom AS serveur,
+       COUNT(DISTINCT c.id) AS nb_commandes,
+       COALESCE(SUM(cd.quantite * p.prix), 0) AS chiffre_affaires
+FROM SERVEUR s
+LEFT JOIN COMMANDE c ON c.id_serveur = s.id
+LEFT JOIN COMMANDEDETAILS cd ON cd.id_commande = c.id
+LEFT JOIN PLAT p ON p.id = cd.id_plat
+GROUP BY s.id, s.nom
+ORDER BY chiffre_affaires DESC;
