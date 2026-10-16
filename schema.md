@@ -37,3 +37,12 @@ Pourquoi ne pas simplement ajouter une colonne `categorie VARCHAR(50)` dans la t
 Où placez-vous la quantité ?
 ## Réponse
 - Dans COMMANDEDETAILS
+
+# Étape 4
+`CLIENT(`**`id`**`, nom)`
+`COMMANDE(`**`id`**`, date_commande,` **`#id_plat`**`,` **`#id_client`**`)`
+
+Votre clé étrangère est-elle NOT NULL ? Quelle jointure faut-il pour ne perdre aucune commande ?
+
+## Réponse
+- Sans NOT NULL, id_client accepte NULL. Une commande peut donc exister sans client. C’était voulu : la colonne a été ajoutée sur une table déjà remplie, donc elle ne pouvait pas être NOT NULL tout de suite.
